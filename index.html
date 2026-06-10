@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秋田犬 なな OFFICIAL WEB SITE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream:    #FAF7F2;
+    --ivory:    #F2EDE4;
+    --black:    #1A1A18;
+    --ink:      #2C2B28;
+    --charcoal: #4A4844;
+    --gray:     #8A8780;
+    --gold:     #B8965A;
+    --gold-lt:  #D4B07A;
+    --red:      #7A2030;
+    --red-lt:   #9B3040;
+    --border:   rgba(26,26,24,0.12);
+    --border-gold: rgba(184,150,90,0.35);
+
+    --ff-display: 'Cormorant Garamond', serif;
+    --ff-jp:      'Noto Serif JP', serif;
+    --ff-sans:    'Noto Sans JP', sans-serif;
+
+    --nav-h: 64px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--ff-sans);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ===== NAVIGATION ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    background: rgba(250,247,242,0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  .nav-logo {
+    font-family: var(--ff-display);
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    color: var(--black);
+    font-weight: 400;
+  }
+  .nav-logo span {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--gray);
+    font-family: var(--ff-sans);
+    font-weight: 300;
+    margin-top: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--ff-display);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--charcoal);
+    font-weight: 400;
+    position: relative;
+    transition: color 0.25s;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--ink);
+    transition: 0.3s;
+  }
+
+  /* ===== MOBILE MENU ===== */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 40px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 0;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: var(--ff-display);
+    font-size: 18px;
+    letter-spacing: 0.25em;
+    color: var(--charcoal);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ===== PAGES ===== */
+  .page { display: none; min-height: 100vh; padding-top: var(--nav-h); }
+  .page.active { display: block; }
+
+  /* ===== SECTION LABEL ===== */
+  .section-label {
+    font-family: var(--ff-display);
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    font-weight: 400;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* ===== ===== ===== TOP PAGE ===== ===== ===== */
+  /* HERO */
+  .hero {
+    position: relative;
+    height: calc(100vh - var(--nav-h));
+    min-height: 500px;
+    overflow: hidden;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #C8B99A 0%, #9B8B76 40%, #6B5E52 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 写真プレースホルダー — 秋田犬シルエット風 */
+  .hero-placeholder {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 55% 60%, rgba(139,110,85,0.5) 0%, transparent 65%),
+      linear-gradient(180deg, #D5C4AA 0%, #B09070 40%, #7A6050 100%);
+  }
+  .hero-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(26,26,24,0.1) 0%,
+      rgba(26,26,24,0) 40%,
+      rgba(26,26,24,0.55) 100%
+    );
+  }
+
+  /* 写真を使う場合は .hero-img に background-image を設定してください */
+  /* 例: .hero-img { background-image: url('photo-hero.jpg'); background-size: cover; background-position: center; } */
+
+  .hero-content {
+    position: absolute;
+    bottom: 72px;
+    left: 64px;
+    right: 64px;
+    color: #FAF7F2;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--ff-display);
+    font-size: 11px;
+    letter-spacing: 0.45em;
+    color: rgba(250,247,242,0.7);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .hero-title {
+    font-family: var(--ff-display);
+    font-size: clamp(42px, 8vw, 88px);
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    line-height: 1.05;
+    margin-bottom: 4px;
+    color: #FAF7F2;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-lt);
+  }
+
+  .hero-subtitle {
+    font-family: var(--ff-display);
+    font-size: clamp(12px, 1.6vw, 15px);
+    letter-spacing: 0.3em;
+    color: rgba(250,247,242,0.65);
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+
+  .hero-catch {
+    font-family: var(--ff-jp);
+    font-size: clamp(12px, 1.8vw, 15px);
+    font-weight: 300;
+    color: rgba(250,247,242,0.88);
+    line-height: 2;
+    border-left: 1px solid var(--gold-lt);
+    padding-left: 20px;
+    max-width: 400px;
+  }
+
+  .hero-photo-note {
+    position: absolute;
+    bottom: 20px;
+    right: 24px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: rgba(250,247,242,0.4);
+    font-family: var(--ff-sans);
+  }
+
+  /* SECTION COMMON */
+  .section {
+    padding: 100px 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    margin-bottom: 64px;
+  }
+
+  .section-title-en {
+    font-family: var(--ff-display);
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .section-title-jp {
+    font-family: var(--ff-jp);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray);
+    letter-spacing: 0.2em;
+  }
+
+  .divider-gold {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 20px 0;
+  }
+
+  /* LATEST NEWS (TOP) */
+  .top-news-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .news-item {
+    background: var(--cream);
+    padding: 32px 28px;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .news-item:hover { background: var(--ivory); }
+
+  .news-date {
+    font-family: var(--ff-display);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .news-tag {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--red);
+    border: 1px solid var(--red);
+    padding: 2px 8px;
+    margin-bottom: 12px;
+    font-family: var(--ff-sans);
+  }
+
+  .news-title-jp {
+    font-family: var(--ff-jp);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.7;
+  }
+
+  /* GALLERY PREVIEW */
+  .gallery-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 320px 220px;
+    gap: 8px;
+  }
+
+  .gallery-preview-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .gallery-preview-item:first-child {
+    grid-row: span 2;
+  }
+
+  .gp-img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease;
+  }
+  .gallery-preview-item:hover .gp-img { transform: scale(1.04); }
+
+  .gp-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(26,26,24,0);
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gallery-preview-item:hover .gp-overlay { background: rgba(26,26,24,0.25); }
+
+  .gp-label {
+    font-family: var(--ff-display);
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: #FAF7F2;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .gallery-preview-item:hover .gp-label { opacity: 1; }
+
+  /* Profile CTA */
+  .cta-block {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding: 60px 64px;
+    background: var(--ivory);
+    border-top: 1px solid var(--border-gold);
+    border-bottom: 1px solid var(--border-gold);
+  }
+
+  .cta-text { flex: 1; }
+
+  .cta-title {
+    font-family: var(--ff-display);
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+
+  .cta-desc {
+    font-family: var(--ff-jp);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 2;
+  }
+
+  .btn-outline {
+    display: inline-block;
+    font-family: var(--ff-display);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--black);
+    border: 1px solid var(--black);
+    padding: 14px 36px;
+    transition: all 0.25s;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .btn-outline:hover {
+    background: var(--black);
+    color: var(--cream);
+  }
+
+  .btn-gold {
+    display: inline-block;
+    font-family: var(--ff-display);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--cream);
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 14px 36px;
+    transition: all 0.25s;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .btn-gold:hover { background: var(--red); border-color: var(--red); }
+
+  /* ===== PROFILE PAGE ===== */
+  .profile-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    padding: 80px 64px 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .profile-photo-wrap {
+    position: sticky;
+    top: calc(var(--nav-h) + 40px);
+  }
+
+  .profile-photo {
+    aspect-ratio: 3/4;
+    background: linear-gradient(150deg, #C8B99A 0%, #9B8060 50%, #5A4838 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 写真プレースホルダー */
+  .profile-photo-ph {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 90% at 50% 55%, rgba(120,90,65,0.6) 0%, transparent 70%),
+      linear-gradient(170deg, #D0BFA0 0%, #A0826A 55%, #5A4235 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 32px;
+  }
+  .profile-photo-ph::after {
+    content: 'NANA';
+    font-family: var(--ff-display);
+    font-size: 13px;
+    letter-spacing: 0.4em;
+    color: rgba(250,247,242,0.5);
+    font-weight: 300;
+  }
+
+  .profile-photo-caption {
+    font-family: var(--ff-display);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gray);
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .profile-info {
+    padding-top: 16px;
+  }
+
+  .profile-name-block {
+    margin-bottom: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .profile-name-jp {
+    font-family: var(--ff-jp);
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--black);
+    line-height: 1.2;
+  }
+
+  .profile-name-en {
+    font-family: var(--ff-display);
+    font-size: 14px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    font-weight: 300;
+    margin-top: 8px;
+  }
+
+  .profile-catch {
+    font-family: var(--ff-jp);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 2.2;
+    margin-top: 12px;
+  }
+
+  .profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 48px;
+  }
+
+  .profile-table tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .profile-table tr:first-child {
+    border-top: 1px solid var(--border);
+  }
+
+  .profile-table td {
+    padding: 18px 0;
+    vertical-align: top;
+    font-family: var(--ff-jp);
+    font-weight: 300;
+  }
+
+  .profile-table td:first-child {
+    font-family: var(--ff-display);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    width: 130px;
+    padding-right: 24px;
+    padding-top: 20px;
+  }
+
+  .profile-table td:last-child {
+    font-size: 14px;
+    color: var(--black);
+    line-height: 1.9;
+  }
+
+  .profile-message {
+    background: var(--ivory);
+    border-left: 2px solid var(--gold);
+    padding: 28px 32px;
+    margin-top: 8px;
+  }
+
+  .profile-message p {
+    font-family: var(--ff-jp);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 2.2;
+  }
+
+  .profile-message .msg-sig {
+    font-family: var(--ff-display);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-top: 16px;
+    display: block;
+  }
+
+  /* ===== NEWS PAGE ===== */
+  .news-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 40px 100px;
+  }
+
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .news-article {
+    border-bottom: 1px solid var(--border);
+    padding: 40px 0;
+  }
+  .news-article:first-child { border-top: 1px solid var(--border); }
+
+  .news-article-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .news-article-date {
+    font-family: var(--ff-display);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+  }
+
+  .news-article-tag {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--red);
+    border: 1px solid var(--red);
+    padding: 2px 10px;
+    font-family: var(--ff-sans);
+  }
+
+  .news-article-title {
+    font-family: var(--ff-jp);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+
+  .news-article-body {
+    font-family: var(--ff-jp);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 2.2;
+  }
+
+  .news-article-body p + p {
+    margin-top: 16px;
+  }
+
+  /* ===== DIARY PAGE ===== */
+  .diary-page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 40px 100px;
+  }
+
+  .diary-entry {
+    margin-bottom: 72px;
+    padding-bottom: 72px;
+    border-bottom: 1px solid var(--border);
+  }
+  .diary-entry:last-child { border-bottom: none; }
+
+  .diary-date {
+    font-family: var(--ff-display);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .diary-title {
+    font-family: var(--ff-jp);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.6;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .diary-cat {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    border: 1px solid var(--border-gold);
+    padding: 2px 10px;
+    display: inline-block;
+    margin-bottom: 24px;
+    font-family: var(--ff-sans);
+  }
+
+  .diary-img-wrap {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+
+  .diary-img-ph {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--ff-display);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: rgba(250,247,242,0.5);
+  }
+
+  .diary-body {
+    font-family: var(--ff-jp);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 2.4;
+  }
+  .diary-body p + p { margin-top: 18px; }
+
+  /* ===== GALLERY PAGE ===== */
+  .gallery-page {
+    padding: 80px 40px 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .gallery-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 56px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gallery-tab {
+    font-family: var(--ff-display);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--gray);
+    padding: 14px 28px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  .gallery-tab:hover { color: var(--black); }
+  .gallery-tab.active {
+    color: var(--black);
+    border-bottom-color: var(--gold);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .gallery-cell {
+    aspect-ratio: 1;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .gallery-cell-img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--ff-display);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: rgba(250,247,242,0.4);
+  }
+  .gallery-cell:hover .gallery-cell-img { transform: scale(1.06); }
+
+  .gallery-cell-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(26,26,24,0);
+    transition: 0.3s;
+  }
+  .gallery-cell:hover .gallery-cell-overlay { background: rgba(26,26,24,0.2); }
+
+  /* ===== CONTACT PAGE ===== */
+  .contact-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 40px 100px;
+  }
+
+  .contact-intro {
+    font-family: var(--ff-jp);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 2.2;
+    margin-bottom: 56px;
+  }
+
+  .sns-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 64px;
+  }
+
+  .sns-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--cream);
+    padding: 24px 32px;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .sns-item:hover { background: var(--ivory); }
+
+  .sns-name {
+    font-family: var(--ff-display);
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    color: var(--black);
+    font-weight: 400;
+  }
+
+  .sns-handle {
+    font-size: 12px;
+    color: var(--gray);
+    font-family: var(--ff-sans);
+    letter-spacing: 0.05em;
+  }
+
+  .sns-arrow {
+    font-family: var(--ff-display);
+    font-size: 18px;
+    color: var(--gold);
+  }
+
+  .contact-form-title {
+    font-family: var(--ff-display);
+    font-size: 22px;
+    letter-spacing: 0.2em;
+    color: var(--black);
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+
+  .contact-form-sub {
+    font-family: var(--ff-jp);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 40px;
+    line-height: 1.8;
+  }
+
+  .form-group {
+    margin-bottom: 28px;
+  }
+
+  .form-label {
+    display: block;
+    font-family: var(--ff-display);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .form-label span {
+    color: var(--red);
+    margin-left: 4px;
+    font-size: 11px;
+    font-family: var(--ff-sans);
+  }
+
+  .form-input, .form-textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 0;
+    font-family: var(--ff-jp);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--black);
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  .form-input:focus, .form-textarea:focus {
+    border-bottom-color: var(--gold);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 2;
+  }
+
+  .form-submit {
+    margin-top: 40px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--black);
+    color: var(--cream);
+    padding: 60px 64px 40px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: var(--ff-display);
+    font-size: 22px;
+    letter-spacing: 0.25em;
+    font-weight: 300;
+    margin-bottom: 6px;
+  }
+
+  .footer-sub {
+    font-family: var(--ff-sans);
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    color: rgba(250,247,242,0.35);
+    margin-bottom: 32px;
+  }
+
+  .footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .footer-nav a {
+    font-family: var(--ff-display);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: rgba(250,247,242,0.45);
+    transition: color 0.2s;
+  }
+  .footer-nav a:hover { color: var(--gold-lt); }
+
+  .footer-copy {
+    font-family: var(--ff-sans);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: rgba(250,247,242,0.2);
+  }
+
+  /* ===== PAGE HEADER (inner pages) ===== */
+  .page-header {
+    padding: 56px 64px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Photo placeholders — 写真差し替えガイド */
+  .ph-warm1 { background: linear-gradient(140deg, #D5BFA0 0%, #A07858 50%, #6A4E38 100%); }
+  .ph-warm2 { background: linear-gradient(160deg, #C8D0B8 0%, #9AAA88 45%, #6A7858 100%); }
+  .ph-warm3 { background: linear-gradient(120deg, #C0B8C8 0%, #9085A0 50%, #554868 100%); }
+  .ph-warm4 { background: linear-gradient(150deg, #D0C8B8 0%, #B0A088 50%, #7A6858 100%); }
+  .ph-warm5 { background: linear-gradient(130deg, #C8D8D0 0%, #98B0A8 50%, #587060 100%); }
+  .ph-warm6 { background: linear-gradient(165deg, #D8CCC0 0%, #B89880 50%, #7A5840 100%); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+
+    .section { padding: 64px 24px; }
+    .hero-content { bottom: 48px; left: 24px; right: 24px; }
+
+    .top-news-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-preview {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+    .gallery-preview-item:first-child { grid-row: span 1; }
+    .gallery-preview-item { aspect-ratio: 4/3; height: auto; }
+
+    .cta-block {
+      flex-direction: column;
+      padding: 48px 24px;
+      gap: 24px;
+    }
+
+    .profile-layout {
+      grid-template-columns: 1fr;
+      padding: 48px 24px 80px;
+      gap: 48px;
+    }
+
+    .profile-photo-wrap { position: static; }
+
+    .news-page, .diary-page, .gallery-page, .contact-page {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .page-header { padding: 48px 24px 0; }
+
+    footer { padding: 48px 24px 32px; }
+    .footer-nav { gap: 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-tabs { gap: 0; }
+    .gallery-tab { padding: 12px 18px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+  <div class="nav-logo">
+    NANA
+    <span>AKITAINU OFFICIAL</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('top')">TOP</a></li>
+    <li><a href="#" onclick="showPage('profile')">PROFILE</a></li>
+    <li><a href="#" onclick="showPage('news')">NEWS</a></li>
+    <li><a href="#" onclick="showPage('diary')">DIARY</a></li>
+    <li><a href="#" onclick="showPage('gallery')">GALLERY</a></li>
+    <li><a href="#" onclick="showPage('contact')">CONTACT</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span id="hb1"></span>
+    <span id="hb2"></span>
+    <span id="hb3"></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="showPage('top');toggleMenu()">TOP</a>
+  <a href="#" onclick="showPage('profile');toggleMenu()">PROFILE</a>
+  <a href="#" onclick="showPage('news');toggleMenu()">NEWS</a>
+  <a href="#" onclick="showPage('diary');toggleMenu()">DIARY</a>
+  <a href="#" onclick="showPage('gallery');toggleMenu()">GALLERY</a>
+  <a href="#" onclick="showPage('contact');toggleMenu()">CONTACT</a>
+</div>
+
+
+<!-- ===== TOP PAGE ===== -->
+<div id="page-top" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-img">
+      <img src="photo/hero.jpeg" alt="秋田犬なな" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      <!--
+        ★ メイン写真の差し替え方 ★
+        上の <div class="hero-placeholder"> を削除し、
+        以下のように background-image を設定してください:
+        <img src="photo/hero.jpg" alt="秋田犬なな" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      -->
+    </div>
+
+    <div class="hero-content">
+      <span class="hero-eyebrow">AKITAINU NANA OFFICIAL WEB SITE</span>
+      <h1 class="hero-title">
+        <em>AKITAINU NANA</em><br>
+        秋田犬 なな
+      </h1>
+      <p class="hero-subtitle">OFFICIAL WEB SITE</p>
+      <p class="hero-catch">
+        大きな体と、繊細な心。<br>
+        お散歩とおやつを愛する、タレント犬。
+      </p>
+    </div>
+    <p class="hero-photo-note">PHOTO — ここに写真のクレジットを入れてください</p>
+  </section>
+
+  <!-- LATEST NEWS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-label">INFORMATION</span>
+      <h2 class="section-title-en">Latest News</h2>
+      <div class="divider-gold"></div>
+      <p class="section-title-jp">最新のお知らせ</p>
+    </div>
+
+    <div class="top-news-grid">
+      <div class="news-item" onclick="showPage('news')">
+        <p class="news-date">2026.06.06</p>
+        <p class="news-tag">EVENT</p>
+        <p class="news-title-jp">首輪すっぽ抜け大冒険事件について</p>
+      </div>
+      <div class="news-item" onclick="showPage('news')">
+        <p class="news-date">2026.05.15</p>
+        <p class="news-tag">NOTICE</p>
+        <p class="news-title-jp">換毛期のお知らせ（2024年秋）</p>
+      </div>
+      <div class="news-item" onclick="showPage('news')">
+        <p class="news-date">2024.09.22</p>
+        <p class="news-tag">REPORT</p>
+        <p class="news-title-jp">健康診断のご報告</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY PREVIEW -->
+  <div class="section" style="padding-top: 0;">
+    <div class="section-header">
+      <span class="section-label">GALLERY</span>
+      <h2 class="section-title-en">Photo Gallery</h2>
+      <div class="divider-gold"></div>
+      <p class="section-title-jp">ギャラリー</p>
+    </div>
+
+    <div class="gallery-preview">
+      <div class="gallery-preview-item">
+        <div class="gp-img ph-warm1" style="position:relative;">
+          <img src="photo/g1.jpg" alt="なな" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <!--
+            ★ 写真差し替え ★
+            <img src="photo/gallery1.jpg" alt="なな" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          -->
+        </div>
+        <div class="gp-overlay"><span class="gp-label">VIEW ALL</span></div>
+      </div>
+      <div class="gallery-preview-item">
+        <div class="gp-img ph-warm2" style="position:relative;height:100%;">
+          <img src="photo/g2.jpg" alt="なな" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="gp-overlay"><span class="gp-label">WALK</span></div>
+      </div>
+      <div class="gallery-preview-item">
+        <div class="gp-img ph-warm3" style="position:relative;height:100%;">
+          <img src="photo/g3.jpg" alt="なな" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="gp-overlay"><span class="gp-label">REST</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top: 32px; text-align: center;">
+      <a class="btn-outline" onclick="showPage('gallery')">GALLERY を見る →</a>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-text">
+      <p class="cta-title">About Nana</p>
+      <p class="cta-desc">
+        秋田犬らしいどっしりとした風格と、<br>
+        繊細な心を持つ5歳の女の子。<br>
+        ひとりでふらりとお散歩に出かけることもある、<br>
+        マイペースなタレント犬です。
+      </p>
+    </div>
+    <a class="btn-gold" onclick="showPage('profile')">PROFILE →</a>
+  </div>
+
+  <footer>
+    <p class="footer-logo">AKITAINU NANA</p>
+    <p class="footer-sub">AKITAINU NANA OFFICIAL WEB SITE</p>
+    <nav class="footer-nav">
+      <a href="#" onclick="showPage('top')">TOP</a>
+      <a href="#" onclick="showPage('profile')">PROFILE</a>
+      <a href="#" onclick="showPage('news')">NEWS</a>
+      <a href="#" onclick="showPage('diary')">DIARY</a>
+      <a href="#" onclick="showPage('gallery')">GALLERY</a>
+      <a href="#" onclick="showPage('contact')">CONTACT</a>
+    </nav>
+    <p class="footer-copy">© NANA OFFICIAL WEB SITE. All Rights Reserved.</p>
+  </footer>
+</div>
+
+
+<!-- ===== PROFILE PAGE ===== -->
+<div id="page-profile" class="page">
+  <div class="profile-layout">
+    <div class="profile-photo-wrap">
+      <div class="profile-photo">
+        <div class="profile-photo-ph ph-warm1">
+          <img src="photo/profile.jpg" alt="秋田犬なな" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <!--
+            ★ プロフィール写真の差し替え ★
+            <img src="photo/profile.jpg" alt="秋田犬なな" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          -->
+        </div>
+      </div>
+      <p class="profile-photo-caption">NANA — AGE 5</p>
+    </div>
+
+    <div class="profile-info">
+      <span class="section-label">PROFILE</span>
+
+      <div class="profile-name-block">
+        <h1 class="profile-name-jp">なな</h1>
+        <p class="profile-name-en">NANA</p>
+        <p class="profile-catch">
+          大きな体と繊細な心を持つ、<br>マイペースなタレント犬。
+        </p>
+      </div>
+
+      <table class="profile-table">
+        <tr>
+          <td>Name</td>
+          <td>なな（Nana）</td>
+        </tr>
+        <tr>
+          <td>Breed</td>
+          <td>秋田犬（Akita Inu）</td>
+        </tr>
+        <tr>
+          <td>Sex</td>
+          <td>女の子 ♀</td>
+        </tr>
+        <tr>
+          <td>Age</td>
+          <td>5歳</td>
+        </tr>
+        <tr>
+          <td>Weight</td>
+          <td>約 30 kg</td>
+        </tr>
+        <tr>
+          <td>Character</td>
+          <td>マイペース、慎重、家族思い、お散歩好き</td>
+        </tr>
+        <tr>
+          <td>Favorites</td>
+          <td>
+            散歩・おやつ・おもちゃの引っ張り合い
+          </td>
+        </tr>
+        <tr>
+          <td>Feature</td>
+          <td>大きな体だけど繊細。気が向けばひとりで散歩へ出かけることも。芯はしっかりしていて、家族を静かに見守ってくれます。</td>
+        </tr>
+      </table>
+
+      <div class="profile-message">
+        <p>
+          ななは、秋田犬らしい風格と独特のマイペースさを兼ね備えた女の子です。
+          大きな体で堂々と歩く姿は迫力満点ですが、
+          知らない人やはじめての場所には少し慎重。
+          そのギャップが、家族の笑顔の源になっています。<br><br>
+          おやつをもらうとき、パァッと目が輝くのがかわいいです。
+        </p>
+        <span class="msg-sig">— FROM NANA'S FAMILY</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p class="footer-logo">NANA</p>
+    <p class="footer-sub">AKITAINU NANA OFFICIAL WEB SITE</p>
+    <nav class="footer-nav">
+      <a href="#" onclick="showPage('top')">TOP</a>
+      <a href="#" onclick="showPage('profile')">PROFILE</a>
+      <a href="#" onclick="showPage('news')">NEWS</a>
+      <a href="#" onclick="showPage('diary')">DIARY</a>
+      <a href="#" onclick="showPage('gallery')">GALLERY</a>
+      <a href="#" onclick="showPage('contact')">CONTACT</a>
+    </nav>
+    <p class="footer-copy">© NANA OFFICIAL WEB SITE. All Rights Reserved.</p>
+  </footer>
+</div>
+
+
+<!-- ===== NEWS PAGE ===== -->
+<div id="page-news" class="page">
+  <div class="news-page">
+    <span class="section-label">INFORMATION</span>
+    <h1 class="section-title-en" style="margin-bottom:12px;">News</h1>
+    <div class="divider-gold"></div>
+    <p class="section-title-jp" style="margin-bottom:56px;">ニュース・お知らせ</p>
+
+    <div class="news-list">
+
+      <article class="news-article">
+        <div class="news-article-meta">
+          <span class="news-article-date">2024.11.03</span>
+          <span class="news-article-tag">EVENT</span>
+        </div>
+        <h2 class="news-article-title">首輪すっぽ抜け大冒険事件について</h2>
+        <div class="news-article-body">
+          <p>この度は、なながご近所様にご迷惑をおかけしてしまいましたことを、深くお詫び申し上げます。</p>
+          <p>当日、お散歩中に突然首輪がすっぽ抜け、ななが単独行動に移行。約30分間、近隣を自主探検いたしました。本人は至って涼しい顔で戻ってきましたが、家族一同、冷や汗を大量にかいた出来事となりました。</p>
+          <p>現在は新しい首輪とハーネスを二重装備にて対応済みです。今後このようなことのないよう、装備の点検を徹底してまいります。なな本人への聴取によると「楽しかった」そうです（推定）。</p>
+        </div>
+      </article>
+
+      <article class="news-article">
+        <div class="news-article-meta">
+          <span class="news-article-date">2024.10.15</span>
+          <span class="news-article-tag">NOTICE</span>
+        </div>
+        <h2 class="news-article-title">換毛期のお知らせ（2024年秋）</h2>
+        <div class="news-article-body">
+          <p>毎年恒例、ななの換毛期に入りましたことをご報告いたします。現在、室内が綿毛の季節を迎えております。</p>
+          <p>抜け毛の量は昨年比で「たっぷり」という水準を維持しており、スタッフ（家族）一同、ブラッシングと掃除機がけに全力で取り組んでおります。なな本人はブラッシングが好きで、終わると満足そうな顔をします。それだけが救いです。</p>
+          <p>換毛期は例年11月中旬ごろに落ち着く見込みです。今しばらくご辛抱ください。</p>
+        </div>
+      </article>
+
+      <article class="news-article">
+        <div class="news-article-meta">
+          <span class="news-article-date">2024.09.22</span>
+          <span class="news-article-tag">REPORT</span>
+        </div>
+        <h2 class="news-article-title">健康診断のご報告</h2>
+        <div class="news-article-body">
+          <p>先日、ななの年に一度の健康診断を実施いたしました。結果は以下の通りです。</p>
+          <p>体重：30.2kg（適正範囲）。血液検査：すべての項目が正常値。歯の状態：良好。先生から「いいコですね」と言っていただけました。</p>
+          <p>動物病院では少し緊張気味でしたが、診察台の上で堂々としていたとのこと。さすが秋田犬、プロ根性を感じます。次回の健康診断は2025年9月を予定しております。</p>
+        </div>
+      </article>
+
+      <!--
+        ★ NEWS 追加方法 ★
+        上の <article class="news-article"> ブロックをコピーして、
+        日付・タグ・タイトル・本文を書き換えてください。
+        タグの種類例：EVENT / NOTICE / REPORT / UPDATE
+      -->
+
+    </div>
+  </div>
+
+  <footer>
+    <p class="footer-logo">NANA</p>
+    <p class="footer-sub">AKITAINU NANA OFFICIAL WEB SITE</p>
+    <nav class="footer-nav">
+      <a href="#" onclick="showPage('top')">TOP</a>
+      <a href="#" onclick="showPage('profile')">PROFILE</a>
+      <a href="#" onclick="showPage('news')">NEWS</a>
+      <a href="#" onclick="showPage('diary')">DIARY</a>
+      <a href="#" onclick="showPage('gallery')">GALLERY</a>
+      <a href="#" onclick="showPage('contact')">CONTACT</a>
+    </nav>
+    <p class="footer-copy">© NANA OFFICIAL WEB SITE. All Rights Reserved.</p>
+  </footer>
+</div>
+
+
+<!-- ===== DIARY PAGE ===== -->
+<div id="page-diary" class="page">
+  <div class="diary-page">
+    <span class="section-label">BLOG</span>
+    <h1 class="section-title-en" style="margin-bottom:12px;">Diary</h1>
+    <div class="divider-gold"></div>
+    <p class="section-title-jp" style="margin-bottom:64px;">日常日記</p>
+
+    <!-- ENTRY 1 -->
+    <article class="diary-entry">
+      <p class="diary-date">2024.11.08 FRI</p>
+      <h2 class="diary-title">秋のにおいがするお散歩でした</h2>
+      <span class="diary-cat">WALK</span>
+
+      <div class="diary-img-wrap">
+        <div class="diary-img-ph ph-warm2">
+          <!--
+            ★ 写真差し替え ★
+            <img src="photo/diary1.jpg" alt="お散歩中のなな" style="width:100%;height:100%;object-fit:cover;">
+          -->
+        </div>
+      </div>
+
+      <div class="diary-body">
+        <p>今朝はいつもより少し早起きして、6時半からお散歩に行きました。空気がひんやりしていて、落ち葉のにおいがして、ななはいつも以上に鼻をひくひくさせながら歩いていました。</p>
+        <p>途中、近所の柴犬くんとすれ違いました。ななは立ち止まって、じっと見つめてから静かに通り過ぎました。秋田犬らしいプライドの高さが垣間見えた瞬間です。</p>
+        <p>帰宅後、玄関でぐてっと倒れ込んで5分ほど休憩。その後ごはんを一気食いしていました。今日も元気です。</p>
+      </div>
+    </article>
+
+    <!-- ENTRY 2 -->
+    <article class="diary-entry">
+      <p class="diary-date">2024.10.30 WED</p>
+      <h2 class="diary-title">おやつの新作を試してみました</h2>
+      <span class="diary-cat">FOOD</span>
+
+      <div class="diary-img-wrap">
+        <div class="diary-img-ph ph-warm4">
+        </div>
+      </div>
+
+      <div class="diary-body">
+        <p>ペットショップで見つけた国産鶏の新作おやつを試してみました。袋を開けた瞬間、なながそわそわし始めました。においで気づいているのです。さすがです。</p>
+        <p>「おすわり」「まて」をきっちりクリアして、ようやくゲット。食べるのは一瞬でした。もう少しゆっくり味わってほしいのですが、本人的には「飲み込む」というスタイルで安定しているようです。</p>
+        <p>総合評価：なな的には★5つ（推定）。おかわりのアピールが止まりませんでした。</p>
+      </div>
+    </article>
+
+    <!-- ENTRY 3 -->
+    <article class="diary-entry">
+      <p class="diary-date">2024.10.18 FRI</p>
+      <h2 class="diary-title">換毛期の日々、そして大量のブラッシング</h2>
+      <span class="diary-cat">DAILY</span>
+
+      <div class="diary-img-wrap">
+        <div class="diary-img-ph ph-warm6">
+        </div>
+      </div>
+
+      <div class="diary-body">
+        <p>換毛期まっただ中です。今日もブラッシングをしました。出てくる毛、出てくる毛。集めたらわりと大きな犬一匹分になりそうな気配です。</p>
+        <p>ununはブラッシングが好きなので、横になってうっとりした顔で受けています。その表情があまりにも気持ちよさそうで、こちらも頑張れます。</p>
+        <p>終わったあと、さらさらふわふわになったなな。鏡に映してあげたいくらいかわいかったです。</p>
+      </div>
+    </article>
+
+    <!--
+      ★ DIARY 追加方法 ★
+      上の <article class="diary-entry"> ブロックをコピーして追加してください。
+      カテゴリ例：WALK / FOOD / DAILY / SEASON / EVENT
+      写真は .diary-img-ph の div を削除し、<img> タグを入れてください。
+    -->
+
+  </div>
+
+  <footer>
+    <p class="footer-logo">NANA</p>
+    <p class="footer-sub">AKITAINU NANA OFFICIAL WEB SITE</p>
+    <nav class="footer-nav">
+      <a href="#" onclick="showPage('top')">TOP</a>
+      <a href="#" onclick="showPage('profile')">PROFILE</a>
+      <a href="#" onclick="showPage('news')">NEWS</a>
+      <a href="#" onclick="showPage('diary')">DIARY</a>
+      <a href="#" onclick="showPage('gallery')">GALLERY</a>
+      <a href="#" onclick="showPage('contact')">CONTACT</a>
+    </nav>
+    <p class="footer-copy">© NANA OFFICIAL WEB SITE. All Rights Reserved.</p>
+  </footer>
+</div>
+
+
+<!-- ===== GALLERY PAGE ===== -->
+<div id="page-gallery" class="page">
+  <div class="gallery-page">
+    <span class="section-label">PHOTOS</span>
+    <h1 class="section-title-en" style="margin-bottom:12px;">Gallery</h1>
+    <div class="divider-gold"></div>
+    <p class="section-title-jp" style="margin-bottom:48px;">ギャラリー</p>
+
+    <div class="gallery-tabs">
+      <button class="gallery-tab active" onclick="filterGallery('all', this)">ALL</button>
+      <button class="gallery-tab" onclick="filterGallery('moult', this)">換毛期</button>
+      <button class="gallery-tab" onclick="filterGallery('walk', this)">お散歩中</button>
+      <button class="gallery-tab" onclick="filterGallery('sleep', this)">寝顔</button>
+      <button class="gallery-tab" onclick="filterGallery('season', this)">季節の写真</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <!--
+        写真セルのデータ（data-cat でカテゴリを指定します）
+        cat: moult / walk / sleep / season
+      -->
+      <div class="gallery-cell" data-cat="walk">
+        <div class="gallery-cell-img ph-warm1">
+          <img src="photo/g1.jpg" alt="お散歩中のなな">
+        </div>
+        <div class="gallery-cell-overlay"></div>
+      </div>
+      <div class="gallery-cell" data-cat="moult">
+        <div class="gallery-cell-img ph-warm2">
+          <img src="photo/g2.jpg" alt="換毛期のなな">
+        </div>
+        <div class="gallery-cell-overlay"></div>
+      </div>
+      <div class="gallery-cell" data-cat="sleep">
+        <div class="gallery-cell-img ph-warm3">
+          <img src="photo/g3.jpg" alt="寝顔">
+        </div>
+        <div class="gallery-cell-overlay"></div>
+      </div>
+      <div class="gallery-cell" data-cat="season">
+        <div class="gallery-cell-img ph-warm4">
+          <!-- <img src="photo/g4.jpg" alt="季節の写真"> -->
+        </div>
+        <div class="gallery-cell-overlay"></div>
+      </div>
+      <div class="gallery-cell" data-cat="walk">
+        <div class="gallery-cell-img ph-warm5">
+          <!-- <img src="photo/g5.jpg" alt="お散歩中のなな"> -->
+        </div>
+        <div class="gallery-cell-overlay"></div>
+      </div>
+      <div class="gallery-cell" data-cat="moult">
+        <div class="gallery-cell-img ph-warm6">
+          <!-- <img src="photo/g6.jpg" alt="換毛期のなな"> -->
+        </div>
+        <div class="gallery-cell-overlay"></div>
+      </div>
+      <div class="gallery-cell" data-cat="sleep">
+        <div class="gallery-cell-img ph-warm1" style="filter:brightness(0.85);">
+        </div>
+        <div class="gallery-cell-overlay"></div>
+      </div>
+      <div class="gallery-cell" data-cat="season">
+        <div class="gallery-cell-img ph-warm3" style="filter:hue-rotate(20deg);">
+        </div>
+        <div class="gallery-cell-overlay"></div>
+      </div>
+      <div class="gallery-cell" data-cat="walk">
+        <div class="gallery-cell-img ph-warm2" style="filter:brightness(0.9);">
+        </div>
+        <div class="gallery-cell-overlay"></div>
+      </div>
+
+      <!--
+        ★ ギャラリー写真の追加方法 ★
+        <div class="gallery-cell" data-cat="walk"> （カテゴリ: moult/walk/sleep/season）
+          <div class="gallery-cell-img">
+            <img src="photo/追加写真.jpg" alt="説明文">
+          </div>
+          <div class="gallery-cell-overlay"></div>
+        </div>
+      -->
+    </div>
+  </div>
+
+  <footer>
+    <p class="footer-logo">NANA</p>
+    <p class="footer-sub">AKITAINU NANA OFFICIAL WEB SITE</p>
+    <nav class="footer-nav">
+      <a href="#" onclick="showPage('top')">TOP</a>
+      <a href="#" onclick="showPage('profile')">PROFILE</a>
+      <a href="#" onclick="showPage('news')">NEWS</a>
+      <a href="#" onclick="showPage('diary')">DIARY</a>
+      <a href="#" onclick="showPage('gallery')">GALLERY</a>
+      <a href="#" onclick="showPage('contact')">CONTACT</a>
+    </nav>
+    <p class="footer-copy">© NANA OFFICIAL WEB SITE. All Rights Reserved.</p>
+  </footer>
+</div>
+
+
+<!-- ===== CONTACT PAGE ===== -->
+<div id="page-contact" class="page">
+  <div class="contact-page">
+    <span class="section-label">GET IN TOUCH</span>
+    <h1 class="section-title-en" style="margin-bottom:12px;">Contact</h1>
+    <div class="divider-gold"></div>
+    <p class="section-title-jp" style="margin-bottom:48px;">お問い合わせ・SNS</p>
+
+    <p class="contact-intro">
+      ななのSNSでは日常の様子を随時更新しています。<br>
+      お問い合わせはフォームよりお気軽にどうぞ。<br>
+      ※ お返事にはお時間をいただく場合がございます。
+    </p>
+
+    <div class="sns-list">
+      <div class="sns-item">
+        <div>
+          <p class="sns-name">Instagram</p>
+          <p class="sns-handle">@nana_akitainu（例）</p>
+        </div>
+        <span class="sns-arrow">→</span>
+      </div>
+      <div class="sns-item">
+        <div>
+          <p class="sns-name">X / Twitter</p>
+          <p class="sns-handle">@nana_akita（例）</p>
+        </div>
+        <span class="sns-arrow">→</span>
+      </div>
+      <div class="sns-item">
+        <div>
+          <p class="sns-name">YouTube</p>
+          <p class="sns-handle">なな ch（例）</p>
+        </div>
+        <span class="sns-arrow">→</span>
+      </div>
+    </div>
+
+    <p class="contact-form-title">Message</p>
+    <p class="contact-form-sub">
+      ご依頼・ご感想・お問い合わせなど、<br>
+      お気軽にメッセージをどうぞ。
+    </p>
+
+    <div>
+      <div class="form-group">
+        <label class="form-label">NAME <span>*</span></label>
+        <input type="text" class="form-input" placeholder="お名前">
+      </div>
+      <div class="form-group">
+        <label class="form-label">EMAIL <span>*</span></label>
+        <input type="email" class="form-input" placeholder="メールアドレス">
+      </div>
+      <div class="form-group">
+        <label class="form-label">SUBJECT</label>
+        <input type="text" class="form-input" placeholder="件名">
+      </div>
+      <div class="form-group">
+        <label class="form-label">MESSAGE <span>*</span></label>
+        <textarea class="form-textarea" placeholder="メッセージをご記入ください"></textarea>
+      </div>
+      <div class="form-submit">
+        <button class="btn-gold" type="button" onclick="alert('送信機能を実装する場合は、Googleフォームや外部サービスと連携してください。')">
+          SEND MESSAGE →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p class="footer-logo">NANA</p>
+    <p class="footer-sub">AKITAINU NANA OFFICIAL WEB SITE</p>
+    <nav class="footer-nav">
+      <a href="#" onclick="showPage('top')">TOP</a>
+      <a href="#" onclick="showPage('profile')">PROFILE</a>
+      <a href="#" onclick="showPage('news')">NEWS</a>
+      <a href="#" onclick="showPage('diary')">DIARY</a>
+      <a href="#" onclick="showPage('gallery')">GALLERY</a>
+      <a href="#" onclick="showPage('contact')">CONTACT</a>
+    </nav>
+    <p class="footer-copy">© NANA OFFICIAL WEB SITE. All Rights Reserved.</p>
+  </footer>
+</div>
+
+
+<script>
+  // ===== ページ切り替え =====
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + name);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  // ===== ハンバーガーメニュー =====
+  let menuOpen = false;
+  function toggleMenu() {
+    menuOpen = !menuOpen;
+    const menu = document.getElementById('mobileMenu');
+    const hb1 = document.getElementById('hb1');
+    const hb2 = document.getElementById('hb2');
+    const hb3 = document.getElementById('hb3');
+    if (menuOpen) {
+      menu.classList.add('open');
+      hb1.style.transform = 'translateY(6px) rotate(45deg)';
+      hb2.style.opacity = '0';
+      hb3.style.transform = 'translateY(-6px) rotate(-45deg)';
+    } else {
+      menu.classList.remove('open');
+      hb1.style.transform = '';
+      hb2.style.opacity = '';
+      hb3.style.transform = '';
+    }
+  }
+
+  // ===== ギャラリータブフィルタ =====
+  function filterGallery(cat, btn) {
+    document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    const cells = document.querySelectorAll('.gallery-cell');
+    cells.forEach(cell => {
+      if (cat === 'all' || cell.dataset.cat === cat) {
+        cell.style.display = '';
+      } else {
+        cell.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
