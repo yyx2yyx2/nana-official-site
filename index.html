@@ -89,7 +89,7 @@
     font-size: 12px;
     letter-spacing: 0.25em;
     color: var(--charcoal);
-    font-weight: 400;
+    font-weight: 600;
     position: relative;
     transition: color 0.25s;
   }
@@ -1049,6 +1049,22 @@
     .gallery-tabs { gap: 0; }
     .gallery-tab { padding: 12px 18px; font-size: 10px; }
   }
+  /* ナビ文字が背景と同化するため、上書き用に固定 */
+  /* ===== NAV COLOR FORCE ===== */
+header nav a,
+nav a,
+.nav-links a,
+.nav-logo,
+.nav-logo span {
+  color: #5A3E2B !important;
+  opacity: 1 !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+.nav-hamburger span {
+  background: #5A3E2B !important;
+}
 </style>
 </head>
 <body>
@@ -1440,7 +1456,7 @@
 
       <div class="diary-body">
         <p>換毛期まっただ中です。今日もブラッシングをしました。出てくる毛、出てくる毛。集めたらわりと大きな犬一匹分になりそうな気配です。</p>
-        <p>ununはブラッシングが好きなので、横になってうっとりした顔で受けています。その表情があまりにも気持ちよさそうで、こちらも頑張れます。</p>
+        <p>ななはブラッシングが苦手ですが、キレイキレイしようね、と声掛けしながら頑張ります。</p>
         <p>終わったあと、さらさらふわふわになったなな。鏡に映してあげたいくらいかわいかったです。</p>
       </div>
     </article>
